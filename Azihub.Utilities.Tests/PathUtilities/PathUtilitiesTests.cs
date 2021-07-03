@@ -14,7 +14,6 @@ namespace Azihub.Utilities.Tests.PathUtility
                 () => PathUtilities.RemoveFolder("/", 1, "\\\\")
                 );
         }
-
         [Fact]
         public void PathTest()
         {
