@@ -1,4 +1,7 @@
 ﻿using PhoneNumbers;
+using System;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace Azihub.Utilities.Base
 {
@@ -29,6 +32,5 @@ namespace Azihub.Utilities.Base
 
             return true;
         }
-
     }
 }

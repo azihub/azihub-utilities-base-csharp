@@ -13,6 +13,7 @@ namespace Azihub.Utilities.Tests.ExtensionsTests
         {
             OutputHelper = outputHelper;
         }
+        
         [Theory]
         [InlineData("test", "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08")]
         [InlineData("ComplexTestString!@#$5^7891234", "bfccc4e552d7641c39978cbad557f5035973082116a015b130181185f32d96ee")]
