@@ -96,3 +96,33 @@ string testVar2 = Environment.GetEnvironmentVariable(varName2);
 Assert.Equal(varValue1, testVar1);
 Assert.Equal(varValue2, testVar2);
 ```
+
+### Get Environment Variables as Object with Values
+Using `DotEnv`.`Load<T>()` you can get object of variables set in environment variables.
+
+```C#
+#region Test Env Vars
+private const string STRING_VALUE   = "TEST";
+private const int    INT_VALUE      = -2147483648;
+private const uint   U_INT_VALUE    = 4294967295;
+private const long   LONG_VALUE     = 9223372036854775807;
+private const ulong  U_LONG_VALUE   = 18446744073709551615;
+#endregion
+[Fact]
+public void GetEnvModelType()
+{
+    Environment.SetEnvironmentVariable(nameof(STRING_VALUE), STRING_VALUE);
+    Environment.SetEnvironmentVariable(nameof(INT_VALUE)   , INT_VALUE.ToString() );
+    Environment.SetEnvironmentVariable(nameof(U_INT_VALUE) , U_INT_VALUE.ToString() );
+    Environment.SetEnvironmentVariable(nameof(LONG_VALUE)  , LONG_VALUE.ToString());
+    Environment.SetEnvironmentVariable(nameof(U_LONG_VALUE), U_LONG_VALUE.ToString());
+
+    WorkerSettings workerSettings = DotEnv.Load<WorkerSettings>();
+
+    Assert.Equal(STRING_VALUE, workerSettings.StringValue);
+    Assert.Equal(INT_VALUE, workerSettings.IntValue);
+    Assert.Equal(U_INT_VALUE, workerSettings.UIntValue);
+    Assert.Equal(LONG_VALUE, workerSettings.LongValue);
+    Assert.Equal(U_LONG_VALUE, workerSettings.ULongValue);
+}
+```

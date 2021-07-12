@@ -47,6 +47,12 @@ namespace Azihub.Utilities.Base.Extensions.String
             return string.Concat(pascalCase);
         }
 
+        public static string AddSpaceToPascalCase(this string original)
+        {
+            var result = string.Concat(original.Select((x, i) => i > 0 && char.IsUpper(x) ? " " + x.ToString() : x.ToString()));
+            return result;
+        }
+
         public static string ToConstantCase(this string original, bool addPrefix = false)
         {
             Regex invalidCharsRgx = new Regex("[^_a-zA-Z0-9]");
