@@ -10,7 +10,15 @@ namespace Azihub.Utilities.Base.Extensions.String
     {
         public static string ToSnakeCase(this string str)
         {
+            str = str.Replace(" ", "_");
             var result = string.Concat(str.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
+            do
+            {
+                result = result.Replace("__", "");
+            } while (!result.Contains("__"));
+            
+            result = Regex.Replace(result, @"\.$", "");
+            
             return result;
         }
 

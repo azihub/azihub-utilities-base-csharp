@@ -3,7 +3,7 @@ using Xunit;
 using Xunit.Abstractions;
 using Azihub.Utilities.Base.Extensions.String;
 
-namespace Azihub.Utilities.Tests.ExtensionsTests
+namespace Azihub.Utilities.Tests.Extensions
 {
     public class ExtensionStringSha256Tests
     {

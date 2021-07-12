@@ -3,7 +3,7 @@ using System.Text;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Azihub.Utilities.Tests.ExtensionsTests
+namespace Azihub.Utilities.Tests.Extensions
 {
     public class ExtensionByteArraySha256Tests
     {
