@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Azihub.Utilities.Tests.Tools
+﻿namespace Azihub.Utilities.Tests.Tools
 {
     public class WorkerSettings
     {

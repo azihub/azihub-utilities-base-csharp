@@ -22,9 +22,9 @@
     <PackageIcon>azihub-utilities-icon.png</PackageIcon>
     <PackageIconUrl />
     <RepositoryUrl>https://github.com/azihub/app-console-csharp</RepositoryUrl>
-    <AssemblyVersion>0.1.5.0</AssemblyVersion>
-    <FileVersion>0.1.5.0</FileVersion>
-    <Version>0.1.5</Version>
+    <AssemblyVersion>0.1.6.0</AssemblyVersion>
+    <FileVersion>0.1.6.0</FileVersion>
+    <Version>0.1.6</Version>
     <PackageReleaseNotes>Azihub.Utilities.Base</PackageReleaseNotes>
   </PropertyGroup>
 

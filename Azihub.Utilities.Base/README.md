@@ -101,6 +101,17 @@ Assert.Equal(varValue2, testVar2);
 Using `DotEnv`.`Load<T>()` you can get object of variables set in environment variables.
 
 ```C#
+
+// Instance of Settings
+public class WorkerSettings
+{
+    public string StringValue { get; set; }
+    public int IntValue  { get; set; }
+    public uint UIntValue  { get; set; }
+    public long LongValue  { get; set; }
+    public ulong ULongValue  { get; set; }
+}
+
 #region Test Env Vars
 private const string STRING_VALUE   = "TEST";
 private const int    INT_VALUE      = -2147483648;
