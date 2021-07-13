@@ -8,13 +8,29 @@ namespace Azihub.Utilities.Base.Extensions.String
 {
     public static class StringUtilities
     {
-        public static string ToSnakeCase(this string str)
+        /// <summary>
+        /// Convert "Normal string" into "snake_case" string.
+        /// </summary>
+        /// <param name="original"></param>
+        /// <returns></returns>
+        public static string StringToSnakeCase(this string original)
         {
-            str = str.Replace(" ", "_");
-            var result = string.Concat(str.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
-            
+            var result = original.Replace(" ", "_").ToLower();
+            // remove trailing dot
             result = Regex.Replace(result, @"\.$", "");
-            
+            return result;
+        }
+
+        /// <summary>
+        /// Convert PascalCase string into snake_case string
+        /// </summary>
+        /// <param name="original"></param>
+        /// <returns></returns>
+        public static string PascalToSnakeCase(this string original)
+        {
+            var result = string.Concat(original.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
+            // remove trailing dot
+            result = Regex.Replace(result, @"\.$", "");
             return result;
         }
 
