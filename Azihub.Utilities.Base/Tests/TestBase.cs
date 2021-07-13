@@ -6,7 +6,7 @@ namespace Azihub.Utilities.Base.Tests
 {
     public abstract class TestBase
     {
-        protected static string EnvPath => ".." + Path.DirectorySeparatorChar + ".env";
+        protected static string EnvPath => ".env";
         protected ITestOutputHelper Output { get; }
 
         public TestBase(ITestOutputHelper outputHelper)

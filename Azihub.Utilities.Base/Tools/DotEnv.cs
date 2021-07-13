@@ -13,7 +13,7 @@ namespace Azihub.Utilities.Base.Tools
     public static class DotEnv
     {
 
-        public static void Load(string filePath)
+        public static void Load(string filePath = ".env")
         {
             if (!File.Exists(filePath))
                 throw new FileNotFoundException(filePath);

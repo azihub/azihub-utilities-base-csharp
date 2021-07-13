@@ -6,6 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace Azihub.Utilities.Base.Extensions.String
 {
+    /// <summary>
+    /// Convert cases as per example: https://en.wikipedia.org/wiki/Naming_convention_(programming)#Examples_of_multiple-word_identifier_formats
+    /// </summary>
     public static class StringUtilities
     {
         /// <summary>
@@ -65,10 +68,15 @@ namespace Azihub.Utilities.Base.Extensions.String
             return result;
         }
 
+        /// <summary>
+        /// Convert any string into CONSTANT_BASE_FROMAT to be used as a constant name of a variable.
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="addPrefixUnderline">In case name starts with a digit, it will add _ as prefix.</param>
+        /// <returns></returns>
         public static string ToConstantCase(this string original, bool addPrefix = false)
         {
 
-            original = original.Replace("-", "_"); 
             
             Regex invalidCharsRgx = new Regex("[^_a-zA-Z0-9]");
             Regex whiteSpace = new Regex(@"(?<=\s)");
