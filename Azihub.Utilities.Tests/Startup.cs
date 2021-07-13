@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Azihub.Utilities.Tests.Tools;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Azihub.Utilities.Tests
 {
@@ -8,6 +7,7 @@ namespace Azihub.Utilities.Tests
     {
         public static void ConfigureServices(IServiceCollection services)
         {
+            // experimenting, not properly used yet.
             services.AddSingleton<WorkerSettings>();
         }
     }

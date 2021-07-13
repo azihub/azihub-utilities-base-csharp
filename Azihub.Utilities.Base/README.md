@@ -60,6 +60,27 @@ public void TestByteArrayToSha256(string text, string expectedHash)
 }
 ```
 
+### `object`.`GetQueryString()`
+turn object into a Web GET query string.
+
+Usage:
+```C#
+const string expected = "Name=John+Doe&Property=1&Value=Value+123!%40%23%24%25%5E%26*()";
+TestObject testObject = new TestObject()
+{
+    Name = "John Doe",
+    Property = 1,
+    PropertyNull = null,
+    Value = "Value 123!@#$%^&*()"
+};
+
+string result = testObject.GetQueryString();
+Output.WriteLine(@$"Input: ""{testObject.ToString()}"""+"\n"+
+    @$"Result: ""{result}"""+"\n"+
+    $@"Expected: ""{expected}""");
+
+Assert.Equal(expected, result);
+```
 ## Path Utilities
 
 ### RemoveFolder
