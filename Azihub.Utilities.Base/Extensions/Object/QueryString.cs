@@ -1,3 +1,4 @@
+using Azihub.Utilities.Base.Extensions.String;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -13,13 +14,35 @@ namespace Azihub.Utilities.Base.Extensions.Object
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-        public static string GetQueryString(this object obj)
+        public static string GetQueryString(this object obj, SelectCase @case = SelectCase.NoChange)
         {
-            IEnumerable<string> properties = obj.GetType().GetRuntimeProperties()
-                .Where(p => p.GetValue(obj, null) != null)
-                .Select(p => p.Name + "=" + WebUtility.UrlEncode(p.GetValue(obj, null).ToString()));
+            IEnumerable<string> properties;
+            switch (@case)
+            {
+                case SelectCase.NoChange:
+                    properties = obj.GetType().GetRuntimeProperties()
+                                    .Where(p => p.GetValue(obj, null) != null)
+                                    .Select(p => p.Name + "=" + WebUtility.UrlEncode(p.GetValue(obj, null).ToString()));
+                    break;
+
+                case SelectCase.PascalToSnakeCase:
+                    properties = obj.GetType().GetRuntimeProperties()
+                                    .Where(p => p.GetValue(obj, null) != null)
+                                    .Select(p => p.Name.PascalToSnakeCase() + "=" + WebUtility.UrlEncode(p.GetValue(obj, null).ToString()));
+                    break;
+
+                default:
+                    throw new KeyNotFoundException();
+            }
 
             return string.Join("&", properties.ToArray());
         }
+    }
+
+
+    public enum SelectCase
+    {
+        NoChange,
+        PascalToSnakeCase
     }
 }
