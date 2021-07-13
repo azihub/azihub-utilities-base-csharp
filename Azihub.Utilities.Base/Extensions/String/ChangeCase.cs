@@ -12,10 +12,6 @@ namespace Azihub.Utilities.Base.Extensions.String
         {
             str = str.Replace(" ", "_");
             var result = string.Concat(str.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
-            do
-            {
-                result = result.Replace("__", "");
-            } while (!result.Contains("__"));
             
             result = Regex.Replace(result, @"\.$", "");
             
@@ -55,9 +51,12 @@ namespace Azihub.Utilities.Base.Extensions.String
 
         public static string ToConstantCase(this string original, bool addPrefix = false)
         {
+
+            original = original.Replace("-", "_"); 
+            
             Regex invalidCharsRgx = new Regex("[^_a-zA-Z0-9]");
             Regex whiteSpace = new Regex(@"(?<=\s)");
-
+            
             // replace white spaces with undescore, then replace all invalid chars with empty string
             var constantCase = invalidCharsRgx.Replace(whiteSpace.Replace(original, "_"), string.Empty)
                 // split by underscores
