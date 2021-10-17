@@ -1,9 +1,7 @@
-﻿using Azihub.Utilities.Base.PathUtilities;
-using Azihub.Utilities.Base.PathUtilities.Exceptions;
-using System.IO;
+﻿using Azihub.Utilities.Base.PathUtilities.Exceptions;
 using Xunit;
 
-namespace Azihub.Utilities.Tests.PathUtility
+namespace Azihub.Utilities.Tests.PathUtilities
 {
     public class PathUtilitiesTests
     {
@@ -11,7 +9,7 @@ namespace Azihub.Utilities.Tests.PathUtility
         public void PathInvalidDirectorySeparatorTest()
         {
             Assert.Throws<InvalidDirectorySeperatorCharException>(
-                () => PathUtilities.RemoveFolder("/", 1, "\\\\")
+                () => Base.PathUtilities.PathUtilities.RemoveFolder("/", 1, "\\\\")
                 );
         }
         [Fact]
@@ -19,7 +17,7 @@ namespace Azihub.Utilities.Tests.PathUtility
         {
             string input = "/first/second/third/forth/fifth/";
             string expected = "/first/second/";
-            string result = PathUtilities.RemoveFolder(input, 3, "/");
+            string result = Base.PathUtilities.PathUtilities.RemoveFolder(input, 3, "/");
             Assert.Equal(expected, result);
         }
     }

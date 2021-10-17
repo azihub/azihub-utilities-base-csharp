@@ -1,4 +1,4 @@
-﻿namespace Azihub.Utilities.Tests.Tools
+﻿namespace Azihub.Utilities.Tests.DotEnvTests.Samples
 {
     public class WorkerSettings
     {

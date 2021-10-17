@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -13,7 +12,10 @@
       Business Logic, Application Failure, Security, Super Exceptions
     </Summary>
     <Description>Tools:
-- Extension.String.Sha256
+- Extensions.String.Sha256
+- Change Pascal, Snake and Contstant: Extensions.String.ChangeCase
+- TestBase for OutputLogger as default: TestBase
+- Load Env model: Tools.DotEnv.Load()
 - Path Utilities
 - Validate Mobile number (to send SMS)</Description>
     <Copyright>Azihub</Copyright>
@@ -22,12 +24,11 @@
     <PackageIcon>azihub-utilities-icon.png</PackageIcon>
     <PackageIconUrl />
     <RepositoryUrl>https://github.com/azihub/azihub-utilities-base-csharp</RepositoryUrl>
-    <AssemblyVersion>0.1.10.0</AssemblyVersion>
-    <FileVersion>0.1.10.0</FileVersion>
-    <Version>0.1.10</Version>
-    <PackageReleaseNotes>Added PascalToSnakeCase() to object.GetQueryStringTest()</PackageReleaseNotes>
+    <AssemblyVersion>0.1.13</AssemblyVersion>
+    <FileVersion>0.1.13</FileVersion>
+    <Version>0.1.13</Version>
+    <PackageReleaseNotes>Added AppLogger.</PackageReleaseNotes>
   </PropertyGroup>
-
   <ItemGroup>
     <None Include="..\azihub-utilities-icon.png">
       <Pack>True</Pack>
@@ -38,11 +39,11 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="DotEnvFile" Version="2.1.0" />
     <PackageReference Include="libphonenumber-csharp" Version="8.12.26" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="xunit.abstractions" Version="2.0.3" />
   </ItemGroup>
-
 </Project>

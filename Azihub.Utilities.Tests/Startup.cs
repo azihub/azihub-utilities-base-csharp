@@ -1,4 +1,4 @@
-﻿using Azihub.Utilities.Tests.Tools;
+﻿using Azihub.Utilities.Tests.DotEnvTests.Samples;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Azihub.Utilities.Tests

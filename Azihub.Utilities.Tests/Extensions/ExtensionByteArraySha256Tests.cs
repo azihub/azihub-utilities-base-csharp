@@ -1,9 +1,9 @@
-﻿using Azihub.Utilities.Base.Extensions.ByteArray;
-using System.Text;
+﻿using System.Text;
+using Azihub.Utilities.Base.Extensions.ByteArray;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Azihub.Utilities.Tests.ExtensionsTests
+namespace Azihub.Utilities.Tests.Extensions
 {
     public class ExtensionByteArraySha256Tests
     {

@@ -1,5 +1,4 @@
 ﻿using Azihub.Utilities.Base.Tools;
-using System.IO;
 using Xunit.Abstractions;
 
 namespace Azihub.Utilities.Base.Tests

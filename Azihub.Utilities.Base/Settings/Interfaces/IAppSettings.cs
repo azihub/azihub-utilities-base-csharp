@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Azihub.Utilities.Base.Settings.Interfaces
+﻿namespace Azihub.Utilities.Base.Settings.Interfaces
 {
     interface IAppSettings
     {

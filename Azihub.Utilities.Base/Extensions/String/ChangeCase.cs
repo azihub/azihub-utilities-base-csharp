@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Azihub.Utilities.Base.Extensions.String
@@ -18,7 +17,7 @@ namespace Azihub.Utilities.Base.Extensions.String
         /// <returns></returns>
         public static string StringToSnakeCase(this string original)
         {
-            var result = original.Replace(" ", "_").ToLower();
+            string result = original.Replace(" ", "_").ToLower();
             // remove trailing dot
             result = Regex.Replace(result, @"\.$", "");
             return result;
@@ -31,7 +30,7 @@ namespace Azihub.Utilities.Base.Extensions.String
         /// <returns></returns>
         public static string PascalToSnakeCase(this string original)
         {
-            var result = string.Concat(original.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
+            string result = string.Concat(original.Select((x, i) => i > 0 && char.IsUpper(x) ? "_" + x.ToString() : x.ToString())).ToLower();
             // remove trailing dot
             result = Regex.Replace(result, @"\.$", "");
             return result;
@@ -47,7 +46,7 @@ namespace Azihub.Utilities.Base.Extensions.String
             Regex upperCaseInside = new Regex("(?<=[A-Z])[A-Z]+?((?=[A-Z][a-z])|(?=[0-9]))");
 
             // replace white spaces with undescore, then replace all invalid chars with empty string
-            var pascalCase = invalidCharsRgx.Replace(whiteSpace.Replace(original, "_"), string.Empty)
+            IEnumerable<string> pascalCase = invalidCharsRgx.Replace(whiteSpace.Replace(original, "_"), string.Empty)
                 // split by underscores
                 .Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries)
                 // set first letter to uppercase
@@ -64,7 +63,7 @@ namespace Azihub.Utilities.Base.Extensions.String
 
         public static string AddSpaceToPascalCase(this string original)
         {
-            var result = string.Concat(original.Select((x, i) => i > 0 && char.IsUpper(x) ? " " + x.ToString() : x.ToString()));
+            string result = string.Concat(original.Select((x, i) => i > 0 && char.IsUpper(x) ? " " + x.ToString() : x.ToString()));
             return result;
         }
 
@@ -82,7 +81,7 @@ namespace Azihub.Utilities.Base.Extensions.String
             Regex whiteSpace = new Regex(@"(?<=\s)");
             
             // replace white spaces with undescore, then replace all invalid chars with empty string
-            var constantCase = invalidCharsRgx.Replace(whiteSpace.Replace(original, "_"), string.Empty)
+            IEnumerable<string> constantCase = invalidCharsRgx.Replace(whiteSpace.Replace(original, "_"), string.Empty)
                 // split by underscores
                 .Split(new char[] { '_' }, StringSplitOptions.RemoveEmptyEntries)
                 // set first letter to uppercase

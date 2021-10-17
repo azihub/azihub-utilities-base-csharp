@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Azihub</Authors>
+    <Company>Azihub</Company>
+    <Product>App Utilities WebDriver</Product>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+    <Summary>
+      WebDriver toolkit for Selenium
+    </Summary>
+    <Description>
+      Tools:
+      - WebDriver Factory.
+      - WebDriver Extension
+      - WebDriver settings
+    </Description>
+    <Copyright>Azihub</Copyright>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/azihub/azihub-utilities-base-csharp</PackageProjectUrl>
+    <PackageIcon>azihub-utilities-icon.png</PackageIcon>
+    <PackageIconUrl />
+    <RepositoryUrl>https://github.com/azihub/azihub-utilities-base-csharp</RepositoryUrl>
+    <AssemblyVersion>0.1.0</AssemblyVersion>
+    <FileVersion>0.1.0</FileVersion>
+    <Version>0.1.0</Version>
+    <PackageReleaseNotes>Initial WebDriver Toolkit.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Azihub.Utilities.Base\Azihub.Utilities.Base.csproj" />
+  </ItemGroup>
+</Project>
