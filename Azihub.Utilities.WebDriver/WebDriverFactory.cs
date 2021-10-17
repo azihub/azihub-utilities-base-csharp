@@ -15,9 +15,9 @@ namespace XeroServices.WebDriver
         public static IWebDriver Create(WebDriverSettings settings = null, string userAgent = null)
         {
             if (settings is null)
-                settings = new();
+                settings = new WebDriverSettings();
 
-            ChromeOptions chromeOptions = new();
+            ChromeOptions chromeOptions = new ChromeOptions();
 
             chromeOptions.AddUserProfilePreference("profile.default_content_settings.popups", 0);
             chromeOptions.AddUserProfilePreference("profile.default_content_setting_values.automatic_downloads", 1);

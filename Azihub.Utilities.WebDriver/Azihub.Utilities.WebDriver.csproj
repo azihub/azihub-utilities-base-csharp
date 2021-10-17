@@ -20,7 +20,7 @@
     <Copyright>Azihub</Copyright>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/azihub/azihub-utilities-base-csharp</PackageProjectUrl>
-    <PackageIcon>azihub-utilities-icon.png</PackageIcon>
+    <PackageIcon>Azihub.Utilities.WebDriver.png</PackageIcon>
     <PackageIconUrl />
     <RepositoryUrl>https://github.com/azihub/azihub-utilities-base-csharp</RepositoryUrl>
     <AssemblyVersion>0.1.0</AssemblyVersion>
@@ -38,5 +38,16 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Azihub.Utilities.Base\Azihub.Utilities.Base.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Azihub.Utilities.WebDriver.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 </Project>
