@@ -2,6 +2,7 @@
 using Azihub.Utilities.Base.Tools.Annotations;
 using Azihub.Utilities.Tests.DotEnvTests.Samples;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Xunit;
 using Azihub.Utilities.Base.Extensions.String;
@@ -34,6 +35,19 @@ namespace Azihub.Utilities.Tests.DotEnvTests
         {
             // Act
             DotEnv.Load(TempEnvFileFixcture.EnvFilePath);
+            string testVar1 = Environment.GetEnvironmentVariable(nameof(TestEnvSettings.TestVar1).PascalToSnakeCase());
+            string testVar2 = Environment.GetEnvironmentVariable(typeof(TestEnvSettings).GetEnvName(nameof(TestEnvSettings.Var2)) );
+
+            // Assert
+            Assert.Equal(TempEnvFileFixcture.VarValue1, testVar1);
+            Assert.Equal(TempEnvFileFixcture.VarValue2, testVar2);
+        }
+        
+        [Fact]
+        public void ParsLinesDotEnvTests()
+        {
+            // Act
+            DotEnv.ParsLines(TempEnvFileFixcture.testEnvs.Split("\n"));
             string testVar1 = Environment.GetEnvironmentVariable(nameof(TestEnvSettings.TestVar1).PascalToSnakeCase());
             string testVar2 = Environment.GetEnvironmentVariable(typeof(TestEnvSettings).GetEnvName(nameof(TestEnvSettings.Var2)) );
 
@@ -76,11 +90,12 @@ namespace Azihub.Utilities.Tests.DotEnvTests
         public string VarValue1 = "TEST_VALUE1";
         public string VarName2 = "TEST_VAR2";
         public string VarValue2 = "TEST_VALUE2";
+        public string testEnvs;
         public TempEnvFileFixcture()
         {
-            string testEnvs = "# COMMENT TEST\n" +
-                            $"{VarName1}={VarValue1}\n" +
-                            $"{VarName2}={VarValue2}\n";
+            testEnvs = "# COMMENT TEST\n" +
+                       $"{VarName1}={VarValue1}\n" +
+                       $"{VarName2}={VarValue2}\n";
 
             EnvFilePath = Path.GetTempPath() + ".env";
             File.WriteAllText(EnvFilePath, testEnvs);
