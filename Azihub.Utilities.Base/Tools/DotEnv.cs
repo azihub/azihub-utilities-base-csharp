@@ -20,7 +20,13 @@ namespace Azihub.Utilities.Base.Tools
             IDictionary<string, string> variable = DotEnvFile.LoadFile(filePath, true);
             DotEnvFile.InjectIntoEnvironment(EnvironmentVariableTarget.Process, variable);
         }
-
+        
+        public static void ParsLines(IEnumerable<string> lines)
+        {
+            IDictionary<string, string> variables = DotEnvFile.ParseLines(lines, true);
+            DotEnvFile.InjectIntoEnvironment(EnvironmentVariableTarget.Process, variables);
+        }
+        
         public static T Load<T>() where T : new()
         {
 
